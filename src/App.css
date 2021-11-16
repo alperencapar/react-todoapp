@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  color: #fff;
+  font-size:16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+section{
   min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(to right, #f356c4, #1c6fa7);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+section #section-container{
+  min-height: 90vh;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section h2{
+  margin-bottom: 1.5rem;
+  font-size: 42px;
+}
+
+section .form-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+section form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section form .form-row{
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+section form input{
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.9px;
+
+}
+
+section form button{
+  position: absolute;
+  width: auto;
+  right: 0;
+  top: 0;
+  /* left: 100%; */
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 100%;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: #f356c4a9;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+section form button:hover{
+  background-color: #f356c4d5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*  */
+
+.todos-container{
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todos-container .todos{
+  width: 100%;
+  min-width: 50%;
+  height: 100%;
+  transition: all .5s ease;
+}
+
+.todos-container .todo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0;
+  padding: .8rem;
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+  color: #fff;
+  background-color: rgb(240, 112, 201);
+  transition: all 0.5s ease;
+  letter-spacing: 1px;
+}
+
+.todos-container .todo:hover{
+  background-color: rgb(243, 76, 193);
+}
+
+.todos-container .todos .todo .btn-container{
+  padding-left: 1rem;
+  height: 100%;
+  display: flex;
+}
+
+.todos-container .todos .todo .btn-container .fas{
+  outline: none;
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  border: none;
+  pointer-events: none;
+
+}
+
+.fa-times{
+  margin: auto;
+  background-color: rgb(243, 73, 73);
+  transition: all .8s ease;
+}
+
+.fa-times:hover{
+  background-color: rgb(255, 8, 8);
+}
+
+.fa-check{
+  transition: all .8s ease;
+  background-color: rgb(130, 235, 130);
+}
+
+.fa-check:hover{
+  background-color: rgb(56, 255, 56);
+}
+
+.remove-animation{
+  transform: translateY(5rem) rotateZ(25deg);
+  opacity: 0;
+}
+
+.completed{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.btn-container button{
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  cursor: pointer;
 }
