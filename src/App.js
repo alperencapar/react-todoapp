@@ -19,6 +19,7 @@ function App() {
    
   }
 
+  // finding todo id from special data attr.
   const findTodoID = (e) => {
     const todoID = e.target.parentElement.parentElement.dataset.id
     return todoID
@@ -27,15 +28,15 @@ function App() {
   const deleteTodo = (e) => {
     
     const todoID = findTodoID(e)
-    
     setTodos(todos.filter((element) => element.id !== todoID))
   }
 
+  //toggling todo complete property
   const todoToggle = (e) => {
 
     const todoID = findTodoID(e)
-
     setTodos(todos.map((element) => {
+
       if (element.id === todoID) {
         return {
           ...element, completed: !element.completed
@@ -43,6 +44,7 @@ function App() {
       }
       return element
     }))
+    
   }
 
   return (
