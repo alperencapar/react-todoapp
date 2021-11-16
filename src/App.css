@@ -84,6 +84,7 @@ section form button{
   border: none;
   background-color: #f356c4a9;
   color: white;
+  cursor: pointer;
 }
 
 section form button:hover{
