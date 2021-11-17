@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 // import packages below this line
 import { v4 as uuidv4 } from 'uuid'                                   //unique id package
@@ -13,6 +13,35 @@ function App() {
 
   const [todos, setTodos] = useState([])
 
+  //run once when page loaded
+  useEffect(() => {
+    const getLocalTodos = () =>{
+      if(isTodosOnLocalStorage()){
+        let localStorageTodos = JSON.parse(localStorage.getItem("todos"))
+        setTodos(localStorageTodos)
+      }
+    }
+    //calling function above
+    getLocalTodos()
+  },[])
+
+  useEffect(() => {
+
+    //! functions defined inside useEffect beacuse of this issue:
+    //https://github.com/facebook/react/issues/14920
+
+    
+  // local storage todo setter
+  const saveTodosToLocal = () => {
+    if(isTodosOnLocalStorage()){
+      //if todos on local storage, set todos state
+      localStorage.setItem("todos", JSON.stringify(todos))
+
+    }
+  }
+    //calling function above
+    saveTodosToLocal()
+  }, [todos])
 
   const addTodo = (todo) => {
     setTodos([...todos, {id: uuidv4(), text: todo, completed: false}])
@@ -46,6 +75,17 @@ function App() {
     }))
     
   }
+
+    //check if todos on local storage or not
+    const isTodosOnLocalStorage = () => {
+
+      if(localStorage.getItem('todos') === null){
+        localStorage.setItem('todos', JSON.stringify([]))
+        return false
+      }
+  
+      return true
+    }
 
   return (
     
